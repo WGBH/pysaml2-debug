@@ -864,7 +864,9 @@ class CryptoBackendXmlSec1(CryptoBackend):
             com_list.extend(['--output', ntf.name])
             com_list += extra_args
 
-            logger.debug('xmlsec command: %s', ' '.join(com_list))
+            logger.debug("--- xmlsec command list ---")
+            logger.debug(com_list)
+            logger.debug('xmlsec command: %s', ' '.join(filter(None, com_list)))
 
             pof = Popen(com_list, stderr=PIPE, stdout=PIPE)
             p_out, p_err = pof.communicate()
